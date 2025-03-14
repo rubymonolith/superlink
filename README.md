@@ -11,7 +11,15 @@ For example, a link that deletes a user from a Rails admin panel might look like
 With Superlink, the same link can be written as:
 
 ```erb
-<% delete(@user, &:name) %>
+<%= delete(@user, &:name) %>
+```
+
+Assuming the controller has been scoped to the `admin` namespace:
+
+```ruby
+class Admin::UsersController < ApplicationController
+  def url = super.join("admin")
+end
 ```
 
 ## Installation
