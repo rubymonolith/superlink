@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 require_relative "superlink/version"
+require "uri-builder"
+require "active_support/concern"
+require "active_support/core_ext/module/delegation"
 
 module Superlink
   class Error < StandardError; end
