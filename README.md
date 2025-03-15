@@ -1,6 +1,6 @@
 # Superlink
 
-Superlink tames the verbosti of Rails' `link_to` helper by providing a more concise and readable alternative.
+Superlink tames the verbosity of Rails' `link_to` helper by providing a more concise and readable alternative.
 
 For example, a link that deletes a user from a Rails admin panel might look like this:
 
