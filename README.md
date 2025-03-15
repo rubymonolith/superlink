@@ -1,6 +1,6 @@
 # Superlink
 
-Superlink tames the verbosity of Rails' `link_to` helper by providing a more concise and readable alternative.
+Superlink tames the verbosity of Rails' `link_to`, `*_path`, and `*_url` helpers by providing a more concise, readable, and extensible alternative.
 
 For example, a link that deletes a user from a Rails admin panel might look like this:
 
@@ -21,6 +21,8 @@ class Admin::UsersController < ApplicationController
   def url = super.join("admin")
 end
 ```
+
+Superlink helpers are Ruby objects, which means you can extend them, add your own helper methods, and customize them way beyond Rails url helper methods.
 
 ## Installation
 
