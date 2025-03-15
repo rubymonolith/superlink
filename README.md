@@ -5,7 +5,7 @@ Superlink tames the verbosity of Rails' `link_to`, `*_path`, and `*_url` helpers
 For example, a link that deletes a user from a Rails admin panel might look like this:
 
 ```erb
-<%= link_to "Delete #{@user.name}", admin_edit_user_path(@user), data_turbo_method: "delete" %>
+<%= link_to "Delete #{@user.name}", admin_user_path(@user), data_turbo_method: "delete" %>
 ```
 
 With Superlink, the same link can be written as:
