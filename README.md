@@ -40,8 +40,8 @@ class Admin::Link < ApplicationLink
     root.join(:admin, super)
   end
 
-  # Deal with a model that doesn't map directly to
-  # a resource within the `admin` namespace.
+  # Deal with a model that doesn't map directly to a resource within the `admin` namespace. This example would end up with a URL like `/admin/invitation/1` if
+  # called via `url(@project_invitation)`.
   def model_segments(model)
     case model
     when ProjectInvitation
