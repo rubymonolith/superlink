@@ -18,11 +18,40 @@ Assuming the controller has been scoped to the `admin` namespace:
 
 ```ruby
 class Admin::UsersController < ApplicationController
-  def url = super.join("admin")
+  def url = Admin::Links.new(request.url)
 end
 ```
 
-Superlink helpers are Ruby objects, which means you can extend them, add your own helper methods, and customize them way beyond Rails url helper methods.
+Superlink helpers are Ruby objects, which means you can extend them, add your own helper methods, and customize them way beyond Rails url helper methods. In Rails, they live in the `app/links` folder:
+
+```
+$ tree ./app/links
+├── application_link.rb
+├── admin_link.rb
+```
+
+These Ruby objects make scoping and testing URL generators more sane.
+
+```ruby
+# app/links/admin_link.rb
+class Admin::Link < ApplicationLink
+  # Slap an `admin` prefix in front of the route.
+  def url
+    root.join(:admin, super)
+  end
+
+  # Deal with a model that doesn't map directly to
+  # a resource within the `admin` namespace.
+  def model_segments(model)
+    case model
+    when ProjectInvitation
+      :invitation
+    else
+      super
+    end
+  end
+end
+```
 
 ## Installation
 
